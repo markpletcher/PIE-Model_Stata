@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pie-model stata by markpletcher</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Pie-model stata</h1>
+        <p>Prevention Impact and Efficiency Model - a set of Stata do files designed to analyze NHANES and produce estimates of the impact and efficiency of a targeted prevention strategy</p>
+
+        <p class="view"><a href="https://github.com/markpletcher/PIE-Model_Stata">View the Project on GitHub <small>markpletcher/PIE-Model_Stata</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/markpletcher/PIE-Model_Stata/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/markpletcher/PIE-Model_Stata/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/markpletcher/PIE-Model_Stata">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h3>
+
+<p>The Prevention Impact and Efficiency (PIE) Model is a simple microsimulation modeling method and implementation, programmed in Stata, for analyzing the impact and efficiency of an intervention designed to prevent disease from occurring in a population.  <strong>Impact</strong> is expressed as the relative % reduction in disease events that occur (usually over a defined time period), and <strong>Efficiency</strong> is expressed as the number needed to treat (NNT) with the intervention to prevent each disease event from occurring (lower NNT is more efficient).  We provide template files for implementing this method and step-by-step instructions for how to use the template.  We hope the model will be used by guideline committees and policymakers looking to estimate the population-level impact and efficiency of their recommendations, and will archive submitted implementation files for published projects using the model.</p>
+
+<h3>
+<a id="purpose-and-rationale" class="anchor" href="#purpose-and-rationale" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Purpose and rationale</h3>
+
+<p>Public health impact can be achieved by 1) setting specific impact priorities, 2) planning and implementing policy designed to fulfill those priorities, and 3) measuring impact and repeating the process.  The Healthy People program (e.g., Healthy People 2020) is a model for steps 1 and 3, and many diverse organizations attempt step 2, planning and implementing policies, but in our view <strong>there are not easy ways of estimating how any given policy might actually achieve specific public health impact goals</strong>.  Public health initiatives typically specify evidence-based interventions that should move health indicators in the right direction, but by how much?  Which interventions will help the most?  And how efficient are interventions?  If there are downsides to the intervention (e.g., cost, adverse effect risks), then </p>
+
+<p>The scientific community similarly lacks a simple and practical method for translating scientific discoveries into a theoretically-attainable public health impact on the US population.  For example, how would one compare the theoretical public health impact of a new prevention strategy with higher potential efficacy (e.g., PCSK9 inhibition(4) for cholesterol-lowering) with the impact of using a new biomarker that can identify high-risk persons more accurately (e.g., coronary artery calcium(5))?  How would these compare with a policy-level intervention (e.g., lowering the treatment threshold for statin therapy in treatment guidelines) or simply improving adherence to current guidelines?
+    Methods for modeling potential health impact are well-developed(6), and many well-designed models exist for simulating decision impact (e.g. for coronary heart disease(7)).  However, these models are typically complex Markov state-transition models with many parameter assumption inputs (e.g. from side effects, costs, adherence, downstream complications and mortality) that are time-consuming to develop, maintain, and apply, and they are not typically open-source.  Guideline committees need simpler ways to obtain estimates of potential impact from proposed policies.
+With the goal of developing a tool usable by guideline committees, we developed a simple model designed to produce theoretically-attainable estimates of public health impact and efficiency of targeted prevention strategies.  The model is based on the National Health and Nutrition Examination Survey (NHANES), requires only 1) an algorithm for estimating disease risk, 2) a decision rule for how to target a proposed intervention, and 3) an algorithm for estimating how much risk is reduced for any given individual from the intervention (all using measurements provided by NHANES), and produces estimates of prevention impact (% reduction in events) and efficiency (number needed to treat to prevent each event) for any combination of intervention and targeting algorithm.</p>
+
+<p>Here we provide a set of template files for implementing this method in Stata (see PIEModelTemplate_v1.0.zip), and step-by-step instructions for how to use the template.  The template files implement a simple analysis of the National Health and Nutrition Examination Survey (NHANES) to estimate prevention impact and efficiency of statin prescribing for prevention of atherosclerotic cardiovascular disease (ASCVD) events, comparing risk-based targeting to age-based targeting to illustrate use of the model.  As noted in the model description, these templates are easily adapted for use with a different dataset (other than NHANES), different outcome of interest (other than atherosclerotic cardiovascular disease), different intervention (other than statins), and different targeting methods (other than use of risk-based or age-based targeting thresholds).</p>
+
+<p>Steps 0, 1 and 2 will all require substantial customization tailored to your research question.  These steps will create a standard dataset, however, analysis of which is then quite simple.  The code provided for Steps 3-5 and for the standard Tables and Figures should require only simple configuration to produce useful output - this is the added value of the PIE Model.</p>
+
+<h3>
+<a id="purpose" class="anchor" href="#purpose" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Purpose</h3>
+
+<p>The purpose of the Prevention Impact and Efficiency (PIE) Model is to make it easier for </p>
+
+<h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+
+<h3>
+<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/markpletcher">markpletcher</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
