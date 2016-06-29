@@ -1,6 +1,6 @@
-# PIE-Model_Stata
+# The Prevention Impact and Efficiency (PIE) Model
 
-## Step-By-Step Instructions for using the Model
+## Step-By-Step Instructions
 
 The Prevention Impact and Efficiency (PIE) Model is a simple microsimulation modeling method and implementation, programmed in Stata, for analyzing the impact and efficiency of an intervention designed to prevent disease from occurring in a population.  **Impact** is expressed as the relative % reduction in disease events that occur (usually over a defined time period), and **Efficiency** is expressed as the number needed to treat (NNT) with the intervention to prevent each disease event from occuring (lower NNT is more efficient).  The basic method entails:
 * Finding of a dataset that is representative of your population of interest, and that has all the measurements you need
